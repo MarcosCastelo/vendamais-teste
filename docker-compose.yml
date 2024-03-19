@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:12
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: djangouser
+      POSTGRES_PASSWORD: password123
+
+  web:
+    build: .
+    command: python /app/vendamais/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_NAME: mydatabase
+      DATABASE_USER: djangouser
+      DATABASE_PASSWORD: password123
+      DATABASE_HOST: db
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

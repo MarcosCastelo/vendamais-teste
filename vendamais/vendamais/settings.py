@@ -11,11 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
 import os
-
-#Load environments vars from .env file
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-ew=!^3o$o7tp(s)8ot1*c&9-2@ur=#h2%##%=*@1!_%#c@vxka')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'FALSE') == 'TRUE'
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -82,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DATABASE_NAME', 'mydatabase'),
-        'USER': os.getenv('DATABASE_USER', 'user'),
+        'USER': os.getenv('DATABASE_USER', 'djangouser'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password123'),
-        'HOST': os.getenv('DATABASE_HOST', 'localhost'),
-        'PORT': os.getenv('DATABASE_PORT', '5432')
+        'HOST': os.getenv('DATABASE_HOST', 'db'),
+        'PORT': '5432',
     }
 }
 

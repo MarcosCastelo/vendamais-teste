@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 
 class CustomUser(AbstractUser):
-  phone = models.CharField(max_length=15, blank=True, null=True)
+  cpf = models.CharField(max_length=11, unique=True, blank=False, null=False)
   
   def __str__(self):
     return self.username

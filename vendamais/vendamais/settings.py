@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'transactions'
 ]
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,7 +84,7 @@ DATABASES = {
         'NAME': os.getenv('DATABASE_NAME', 'mydatabase'),
         'USER': os.getenv('DATABASE_USER', 'djangouser'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password123'),
-        'HOST': os.getenv('DATABASE_HOST', 'db'),
+        'HOST': os.getenv('DATABASE_HOST', 'localhost'),
         'PORT': '5432',
     }
 }

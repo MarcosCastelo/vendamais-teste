@@ -6,4 +6,4 @@ sqlparse==0.4.4
 typing_extensions==4.10.0
 django_database_url
 django_on_heroku
-corsheaders
+django-cors-headers

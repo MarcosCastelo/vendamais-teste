@@ -1,1 +1,1 @@
-web: gunicorn vendamais.wsgi
+web: gunicorn --pythonpath /vendamais/vendamais.wsgi

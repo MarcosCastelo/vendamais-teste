@@ -56,6 +56,14 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     return data
   
 class AccountSerializer(serializers.ModelSerializer):
+  cpf = serializers.SerializerMethodField()
+  username = serializers.SerializerMethodField()
   class Meta:
     model = Account
-    fields = ['id', 'balance']
+    fields = ['id', 'balance', 'cpf', 'username']
+  
+  def get_username(self, obj):
+    return obj.user.username
+    
+  def get_cpf(self, obj):
+    return obj.user.cpf

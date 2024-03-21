@@ -33,9 +33,8 @@ def withdraw_view(request):
     account_id = request.user.account.id
     amount = request.data.get('amount')
     
-    transaction_service.withdraw(account_id, float(amount))
-    
-    transaction = transaction_data = TransactionSerializer(transaction).data
+    transaction = transaction_service.withdraw(account_id, float(amount))
+    transaction_data = TransactionSerializer(transaction).data
     
     return Response({
       "message": "Withdraw successful.",

@@ -4,3 +4,8 @@ djangorestframework==3.15.0
 psycopg2-binary==2.9.9
 sqlparse==0.4.4
 typing_extensions==4.10.0
+django_database_url
+django_on_heroku
+django-cors-headers
+gunicorn
+djangorestframework-simplejwt
